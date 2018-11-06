@@ -16,6 +16,10 @@ const browserConfig = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -47,6 +51,10 @@ const serverConfig = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['css-loader/locals']
       }
     ]
   },
