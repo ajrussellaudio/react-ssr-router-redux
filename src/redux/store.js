@@ -4,10 +4,9 @@ import createHistory from 'history/createBrowserHistory';
 import createMemoryHistory from 'history/createMemoryHistory';
 import reducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import initialState from './initialState';
 
 const history = process.env.BROWSER ? createHistory() : createMemoryHistory();
-
-const initialState = { counter: 10 };
 
 const store = createStore(
   connectRouter(history)(reducer),

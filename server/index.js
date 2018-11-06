@@ -17,11 +17,20 @@ const respondWithHtml = (app, res) => {
       console.error('Something went wrong:', err);
       return res.status(500).send('Nae luck pal');
     }
-    return res.send(
-      html.replace('<div id="app"></div>', `<div id="app">${app}</div>`)
+
+    const htmlWithApp = html.replace(
+      '<div id="app"></div>',
+      `<div id="app">${app}</div>
+        <script src="/assets/bundle.js"></script>`
     );
+
+    console.log(htmlWithApp);
+
+    return res.send(htmlWithApp);
   });
 };
+
+app.use('/assets', express.static('./dist'));
 
 app.get('/*', (req, res) => {
   const context = {};
@@ -29,16 +38,20 @@ app.get('/*', (req, res) => {
   const clientApp = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
-        <App />
+        <App appLocation="Server" />
       </StaticRouter>
     </Provider>
   );
 
   if (context.url) {
+    console.log('=== REDIRECT ===');
+
     res.writeHead(301, {
       Location: context.url
     });
   } else {
+    console.log('=== GETS HERE ===');
+
     respondWithHtml(clientApp, res);
   }
 });

@@ -9,7 +9,7 @@ import App from './App';
 const routedApp = (
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <App appLocation="Client" />
     </BrowserRouter>
   </Provider>
 );

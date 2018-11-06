@@ -1,6 +1,5 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions';
-
-const initialState = 10;
+import initialState from '../initialState';
 
 export default function counterReducer(state = initialState, action) {
   switch (action.type) {
