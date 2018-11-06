@@ -14,4 +14,4 @@ const routedApp = (
   </Provider>
 );
 
-ReactDOM.render(routedApp, document.getElementById('app'));
+ReactDOM.hydrate(routedApp, document.getElementById('app'));
