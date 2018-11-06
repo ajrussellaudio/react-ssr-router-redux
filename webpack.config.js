@@ -5,7 +5,8 @@ module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -21,5 +22,8 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html'
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true
+  }
 };
