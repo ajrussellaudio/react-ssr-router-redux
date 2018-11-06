@@ -24,8 +24,6 @@ const respondWithHtml = (app, res) => {
         <script src="/assets/bundle.js"></script>`
     );
 
-    console.log(htmlWithApp);
-
     return res.send(htmlWithApp);
   });
 };
@@ -44,14 +42,10 @@ app.get('/*', (req, res) => {
   );
 
   if (context.url) {
-    console.log('=== REDIRECT ===');
-
     res.writeHead(301, {
       Location: context.url
     });
   } else {
-    console.log('=== GETS HERE ===');
-
     respondWithHtml(clientApp, res);
   }
 });
