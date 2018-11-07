@@ -7,6 +7,7 @@ import { incrementCounter, decrementCounter } from '../redux/actions';
 const Counter = ({ counter, incrementCounter, decrementCounter }) => {
   return (
     <React.Fragment>
+      <pre>Redux-controlled counter component:</pre>
       <h1>{counter}</h1>
       <button onClick={incrementCounter}>+1</button>
       <button onClick={decrementCounter}>-1</button>
